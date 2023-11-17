@@ -1,10 +1,9 @@
 import React from 'react';
-import Inlinestyle from './day2/Inlinestyle';
-
+import FruitSurvey from './day4/FruitSurvey';
 const App = () => {
   return (
     <div>
-      <><Inlinestyle></Inlinestyle></>
+      <><FruitSurvey></FruitSurvey></>
     </div>
   );
 };
