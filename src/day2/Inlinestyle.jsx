@@ -1,6 +1,6 @@
 import React from "react";
 
-const InlineStyle = () => {
+const Inlinestyle = () => {
   return (
     <div
       style={{
@@ -34,4 +34,4 @@ const InlineStyle = () => {
   );
 };
 
-export default InlineStyle;
+export default Inlinestyle;

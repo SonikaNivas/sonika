@@ -1,11 +1,12 @@
 import React from 'react';
-import Toggle from './day3/Toggle';
-function App() {
+import Inlinestyle from './day2/Inlinestyle';
+
+const App = () => {
   return (
     <div>
-      <><Toggle></Toggle></>
+      <><Inlinestyle></Inlinestyle></>
     </div>
   );
-}
+};
 
 export default App;
