@@ -1,9 +1,9 @@
 import React from 'react';
-import FruitSurvey from './day4/FruitSurvey';
+import LoginButton from "./day4/LoginButton"
 const App = () => {
   return (
     <div>
-      <><FruitSurvey></FruitSurvey></>
+      <><LoginButton></LoginButton></>
     </div>
   );
 };
