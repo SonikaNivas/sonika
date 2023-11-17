@@ -1,11 +1,11 @@
-import './App.css';
-import Submit from "./day3/Submit";
+import React from 'react';
+import Toggle from './day3/Toggle';
 function App() {
-  return(
-    <div className="App">
-      <><Submit></Submit></>
-
+  return (
+    <div>
+      <><Toggle></Toggle></>
     </div>
   );
 }
-export default App
+
+export default App;
