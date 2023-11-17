@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Wicket from "./day3/Wicket";
+import Submit from "./day3/Submit";
 function App() {
-  return (
-    <><Wicket></Wicket></>
+  return(
+    <div className="App">
+      <><Submit></Submit></>
+
+    </div>
   );
 }
-
-export default App;
+export default App
