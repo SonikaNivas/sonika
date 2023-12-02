@@ -1172,3 +1172,145 @@ class StudentForm extends JFrame implements ActionListener {
  new StudentForm();
  }
 }
+
+
+	20.SWING name,regno,cgpa SWING STUDENT FORM WELCOME MESSAGE
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class StudentForm extends JFrame implements ActionListener {
+private JLabel nameLabel, regNoLabel, cgpaLabel, genderLabel;
+private JTextField nameField, regNoField, cgpaField;
+private JCheckBox maleCheckBox, femaleCheckBox;
+private JButton submitButton;
+public StudentForm() {
+setTitle("Student Information Form");
+setSize(400, 200);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+nameLabel = new JLabel("Name:");
+regNoLabel = new JLabel("Reg No:");
+cgpaLabel = new JLabel("CGPA:");
+genderLabel = new JLabel("Gender:");
+nameField = new JTextField(20);
+regNoField = new JTextField(10);
+cgpaField = new JTextField(4);
+maleCheckBox = new JCheckBox("Male");
+femaleCheckBox = new JCheckBox("Female");
+submitButton = new JButton("Submit");
+submitButton.addActionListener(this);
+JPanel panel = new JPanel();
+panel.setLayout(new GridLayout(5, 2));
+panel.add(nameLabel);
+panel.add(nameField);
+panel.add(regNoLabel);
+panel.add(regNoField);
+panel.add(cgpaLabel);
+panel.add(cgpaField);
+panel.add(genderLabel);
+panel.add(maleCheckBox);
+panel.add(new JLabel()); // Empty label for spacing
+panel.add(femaleCheckBox);
+panel.add(submitButton);
+add(panel);
+setVisible(true);
+}
+@Override
+public void actionPerformed(ActionEvent e) {
+if (e.getSource() == submitButton) {
+String name = nameField.getText();
+String regNo = regNoField.getText();
+String cgpa = cgpaField.getText();
+String gender = "";
+if (maleCheckBox.isSelected()) {
+gender = "Male";
+}
+if (femaleCheckBox.isSelected()) {
+gender = "Female";
+}
+String message = "Welcome, " + name + "! Your Reg No is " + regNo + ", CGPA is " + cgpa
++ ", and you are a " + gender + ".";
+JOptionPane.showMessageDialog(this, message);
+}
+}
+public static void main(String[] args) {
+new StudentForm();
+}
+}
+
+---------------------------------------------------------
+22.SWING IRC TRAINER FORM
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class TrainerFeedbackForm extends JFrame implements ActionListener {
+ private JLabel question1Label, question2Label, question3Label, ratingLabel;
+ private JRadioButton yes1, no1, yes2, no2, yes3, no3;
+ private ButtonGroup group1, group2, group3;
+ private JTextArea ratingTextArea;
+ private JButton submitButton;
+ public TrainerFeedbackForm() {
+ setTitle("Trainer Feedback Form");
+ setSize(400, 300);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ question1Label = new JLabel("Were the contents delivered clearly by the trainer?");
+ question2Label = new JLabel("Do the trainers clear all your doubts?");
+ question3Label = new JLabel("Do the trainer is interactive?");
+ ratingLabel = new JLabel("Rate the trainer on a scale of 1 to 10:");
+ yes1 = new JRadioButton("Yes");
+ no1 = new JRadioButton("No");
+ group1 = new ButtonGroup();
+ group1.add(yes1);
+ group1.add(no1);
+ yes2 = new JRadioButton("Yes");
+ no2 = new JRadioButton("No");
+ group2 = new ButtonGroup();
+ group2.add(yes2);
+ group2.add(no2);
+ yes3 = new JRadioButton("Yes");
+ no3 = new JRadioButton("No");
+ group3 = new ButtonGroup();
+ group3.add(yes3);
+ group3.add(no3);
+ ratingTextArea = new JTextArea(5, 20);
+ ratingTextArea.setLineWrap(true);
+ ratingTextArea.setWrapStyleWord(true);
+ submitButton = new JButton("Submit");
+ submitButton.addActionListener(this);
+ JPanel panel = new JPanel();
+ panel.setLayout(new GridLayout(7, 1));
+ panel.add(question1Label);
+ panel.add(yes1);
+ panel.add(no1);
+ panel.add(question2Label);
+ panel.add(yes2); panel.add(no2);
+ panel.add(question3Label);
+ panel.add(yes3); panel.add(no3);
+ panel.add(ratingLabel); panel.add(ratingTextArea);
+ panel.add(submitButton);
+ add(panel);
+ setVisible(true);
+ }
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ if (e.getSource() == submitButton) {
+ // Get the selected options
+ String answer1 = yes1.isSelected() ? "Yes" : "No";
+ String answer2 = yes2.isSelected() ? "Yes" : "No";
+ String answer3 = yes3.isSelected() ? "Yes" : "No";
+ String rating = ratingTextArea.getText();
+ // Display the feedback in a dialog
+ String feedbackMessage = "Feedback:\n" +
+ "Were the contents delivered clearly by the trainer? " + answer1 + "\n" +
+ "Do the trainers clear all your doubts? " + answer2 + "\n" +
+ "Do the trainer is interactive? " + answer3 + "\n" +
+ "Rating: " + rating;
+JOptionPane.showMessageDialog(this,feedbackMessage,"Feedback",JOptionPane.INFORMATION
+_MESSAGE);
+ }
+ }
+ public static void main(String[] args) {
+ new TrainerFeedbackForm();
+ }}
