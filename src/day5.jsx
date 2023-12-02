@@ -807,27 +807,35 @@ class Main
 
 // 19. Eligible to vote:
 
+// You are using Java
+
+//Eligibility to vote 
+
 import java.util.*;
-class AgeException extends Exception {
-    public AgeException(String message) {
-        super(message);
-    }
-}
-class VoteEligibilityChecker {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int age = sc.nextInt();
-        try {
-            checkEligibility(age);
-        } catch (AgeException e) {
-            System.out.println(e.getMessage());
+class VoteEligibilityChecker{
+    public static void checkAge(int age) throws Exception
+    {
+        if(age<18)
+        {
+            throw new Exception("Not Eligible to vote");
+        }
+        else
+        {
+            System.out.println("Eligiblr to vote");
         }
     }
-    public static void checkEligibility(int age) throws AgeException {
-        if (age < 18) {
-            throw new AgeException("Not Eligible to vote\n"+"AgeException");
-        } else {
-            System.out.println("Eligible to vote");
+}
+class Main{
+    public static void main(String args[])
+    {
+        Scanner sc= new Scanner(System.in);
+        int age =sc.nextInt();
+        try{
+            VoteEligibilityChecker.checkAge(age);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("AgeException");
         }
     }
 }
@@ -867,39 +875,50 @@ class Main{
 
 // 21.Frequency of letters sum:
 
+// You are using Java
+import java.io.*;
 import java.util.*;
-class Mythread extends Thread{
-    String str;
-    static int n;
-    public Mythread(String str){
-        super();
-        this.str=str;
+class Eng extends Thread{
+    private String a;
+    Eng(String a)
+    {
+        this.a=a;
     }
-    public void run(){
-        System.out.println();
-        n=this.str.length();
-        int [] freq=new int[26];
-        for(int i=0;i<n;i++){
-            freq[this.str.charAt(i)-'a']++;
-        }
-        for(int i=0;i<n;i++){
-            if(freq[this.str.charAt(i)-'a']!=0){
-                System.out.print(this.str.charAt(i));
-                System.out.print(freq[this.str.charAt(i)-'a']);
-                System.out.println();
-                freq[this.str.charAt(i)-'a']=0;
+    public void run()
+    {
+        int c=1;
+        char b[]=a.toCharArray();
+        for(int i=0;i<b.length;i++)
+        {
+            c=1;
+            for(int j=i+1;j<b.length;j++)
+            {
+                if(b[i]==b[j] && b[i]!='@')
+                {
+                    c++;
+                    b[j]='@';
+                }
+            }
+            if(b[i]!='@')
+            {
+                System.out.print(b[i]);
+                System.out.println(c);
             }
         }
+        System.out.println();
     }
 }
 class main{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
+        sc.nextLine();
         for(int i=0;i<n;i++){
-            Mythread obj = new Mythread(sc.next());
-            Thread t=new Thread(obj);
-            t.start();
+            String a=sc.nextLine();
+            Eng e=new Eng(a);
+            Thread t=new Thread(e);
+            e.start();
         }
     }
 }
